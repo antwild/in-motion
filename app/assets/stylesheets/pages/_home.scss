@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.banner {
+  display: flex;
+  align-items: center;
+  background-image: url(motion.jpg);
+  background-size: cover;
+  opacity: 0.8;
+  height: 100vh;
+  width: 100vw;
+}
+
+.banner-text {
+  margin-left: 120px;
+}
+
+.home {
+  h2 {
+    text-align: center;
+    margin-top: 10vh;
+  }
+}
