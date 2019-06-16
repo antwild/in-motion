@@ -1,9 +1,9 @@
 class ServicesController < ApplicationController
   def index
-    @services = Services.all
+    @services = Service.all
   end
 
   def show
-    @service = Services.find(params[:id])
+    @service = Service.find(params[:id])
   end
 end

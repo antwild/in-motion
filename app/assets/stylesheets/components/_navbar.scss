@@ -11,6 +11,49 @@
 //   width: 40px;
 // }
 .navbar {
-  height: 8vh;
-  background-color: lightblue;
+  margin-top: 20px;
+  height: 10vh;
+  // background-color: lightblue;
+  padding: 0;
+}
+
+.logo {
+  height: inherit;
+  width: 50px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end!important;
+}
+
+.links {
+  width: 80%;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 0;
+}
+
+.nav-links {
+  display: inline-block;
+  &:hover {
+    border-bottom: 3px solid gold;
+    transition: 1s;
+  }
+}
+
+.blog-menu {
+  width: 0;
+}
+
+.blog-link {
+  background-color: #0E9A2F;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
 }
