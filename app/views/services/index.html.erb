@@ -1,3 +1,8 @@
 <div class="container">
-  <h2 class="h-font form-header">Book a consultation</h2>
+  <h2 class="h-font form-header">Please select a service to book a consultation</h2>
+  <% @services.each do |service| %>
+    <h3><%= service.service_type.capitalize %></h3>
+  <% end %>
 </div>
+
+<%=  %>
