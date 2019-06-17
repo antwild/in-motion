@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = Users.new
     @user.save(users_params)
-    redirect_to user_path(@user)
+    # redirect_to user_path(@user)
   end
 
   def update

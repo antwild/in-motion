@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_16_152733) do
+ActiveRecord::Schema.define(version: 2019_06_17_152810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,19 +26,20 @@ ActiveRecord::Schema.define(version: 2019_06_16_152733) do
 
   create_table "consultations", force: :cascade do |t|
     t.date "date"
-    t.bigint "users_id"
-    t.bigint "services_id"
+    t.bigint "user_id"
+    t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.time "time"
-    t.index ["services_id"], name: "index_consultations_on_services_id"
-    t.index ["users_id"], name: "index_consultations_on_users_id"
+    t.index ["service_id"], name: "index_consultations_on_service_id"
+    t.index ["user_id"], name: "index_consultations_on_user_id"
   end
 
   create_table "services", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "service_type"
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,6 +53,6 @@ ActiveRecord::Schema.define(version: 2019_06_16_152733) do
   end
 
   add_foreign_key "blogs", "users", column: "users_id"
-  add_foreign_key "consultations", "services", column: "services_id"
-  add_foreign_key "consultations", "users", column: "users_id"
+  add_foreign_key "consultations", "services"
+  add_foreign_key "consultations", "users"
 end

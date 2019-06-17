@@ -1,8 +1,12 @@
 <div class="container">
   <h2 class="h-font form-header">Please select a service to book a consultation</h2>
-  <% @services.each do |service| %>
-    <h3><%= service.service_type.capitalize %></h3>
-  <% end %>
+  <div class="cards">
+    <% @services.each do |service| %>
+      <%= link_to new_service_consultation_path(service) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(assets/<%= service.image %>);">
+          <%= service.service_type.capitalize %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
-<%=  %>

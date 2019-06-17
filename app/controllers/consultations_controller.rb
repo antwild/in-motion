@@ -1,20 +1,28 @@
 class ConsultationsController < ApplicationController
   def index
-    @consultations = Consultations.all
+    @consultations = Consultation.all
   end
 
   def show
-    @consultation = Consultations.find(params[:id])
+    @consultation = Consultation.find(params[:id])
   end
 
   def new
-    @consultation = Consultations.new
+    @user = User.new
+    @service = Service.find(params[:service_id])
+    @consultation = Consultation.new
   end
 
   def create
-    @consultation = Consultations.new(consultation_params)
-    @consultation.save
-    redirect_to service_constulation_path(@consultation)
+    # @user = User.find(params[:user_id])
+    @service = Service.find(params[:service_id])
+    @consultation = Consultation.new
+    @consultation.service = @service
+    if @consultation.save(consultation_params, @service)
+      redirect_to service_constulation_path(@consultation)
+    else
+      render :new
+    end
   end
 
 # Commented actions will be needed when creating a sign up/in feature
