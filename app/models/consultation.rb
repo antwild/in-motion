@@ -1,4 +1,4 @@
 class Consultation < ApplicationRecord
-  belongs_to :users
-  belongs_to :services
+  belongs_to :user
+  belongs_to :service
 end
