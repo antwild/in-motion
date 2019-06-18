@@ -13,8 +13,10 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new
-    @blog.save(blog_params)
+    @blog = Blog.new(blog_params)
+    # User needs updating
+    @blog.user_id = 1
+    @blog.save
     redirect_to blog_path(@blog)
   end
 
@@ -33,6 +35,6 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, :cover_image)
   end
 end

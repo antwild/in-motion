@@ -5,7 +5,8 @@
     <% @blogs.each do |blog| %>
       <%= link_to blog_path(blog) do %>
         <div class="card-blog">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+          <%= cl_image_tag(blog.cover_image) %>
+          <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
           <div class="card-blog-infos">
             <div>
               <h2><%= blog.title %></h2>
