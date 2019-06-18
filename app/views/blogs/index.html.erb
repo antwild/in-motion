@@ -1,0 +1,7 @@
+<div class="container">
+  <h2 class="h-font form-header">In Motion Blogs</h2>
+  <% @blogs.each do |blog| %>
+    <h3><%= blog.title %></h3>
+    <p><%= blog.content.truncate_words(15) %></p>
+  <% end %>
+</div>

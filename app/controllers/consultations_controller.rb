@@ -17,7 +17,7 @@ class ConsultationsController < ApplicationController
     # @user = User.find(params[:user_id])
     @service = Service.find(params[:service_id])
     @consultation = Consultation.new
-    @consultation.service_id = params[:service_id]
+    @consultation.service_id = @service.id
     if @consultation.save(consultation_params)
       redirect_to service_constulation_path(@consultation)
     else

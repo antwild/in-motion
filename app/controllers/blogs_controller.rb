@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
+    @lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus at consequuntur debitis, rem et totam. Voluptatum ratione labore cumque ullam quos eius harum eum deserunt, voluptatibus. Nisi totam adipisci porro."
   end
 
   def show
