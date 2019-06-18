@@ -3,7 +3,7 @@
   <div class="service-cards">
     <% @services.each do |service| %>
       <%= link_to new_service_consultation_path(service) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(assets/<%= service.image %>);">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= service.image %>);">
           <%= service.service_type.capitalize %>
         </div>
       <% end %>
