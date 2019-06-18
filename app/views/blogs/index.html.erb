@@ -1,9 +1,21 @@
 <div class="container">
   <h2 class="h-font form-header">In Motion Blogs</h2>
-  <% @blogs.each do |blog| %>
-    <div class="blog-link">
-      <h4><%= blog.title %></h4>
-      <p><%= blog.content.truncate_words(25) %></p>
-    </div>
-  <% end %>
+
+  <div class="blog-cards">
+    <% @blogs.each do |blog| %>
+      <%= link_to blog_path(blog) do %>
+        <div class="card-blog">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+          <div class="card-blog-infos">
+            <div>
+              <h2><%= blog.title %></h2>
+              <p><%= blog.content.truncate_words(8) %></p>
+            </div>
+            <img src='https://bit.ly/31EUoQL' class="card-blog-user avatar-bordered"/>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>

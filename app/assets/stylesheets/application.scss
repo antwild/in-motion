@@ -17,6 +17,10 @@ body {
   background-color: #F5F6F7;
 }
 
-a:hover {
+a {
+  color: black;
+  &:hover {
   text-decoration: none;
+  }
 }
+
