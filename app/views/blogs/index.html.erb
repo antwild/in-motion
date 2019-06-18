@@ -1,14 +1,15 @@
 <div class="container">
-  <h2 class="h-font form-header">In Motion Blogs</h2>
+  <h2 class="h-font form-header">In Motion Blog</h2>
 
   <div class="blog-cards">
     <% @blogs.each do |blog| %>
       <%= link_to blog_path(blog) do %>
         <div class="card-blog">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+          <%= cl_image_tag(blog.cover_image) %>
+          <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
           <div class="card-blog-infos">
             <div>
-              <h2><%= blog.title %></h2>
+              <h2><%= blog.title.truncate_words(5) %></h2>
               <p><%= blog.content.truncate_words(8) %></p>
             </div>
             <img src='https://bit.ly/31EUoQL' class="card-blog-user avatar-bordered"/>
