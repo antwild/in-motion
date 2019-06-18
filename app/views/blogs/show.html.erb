@@ -1,5 +1,10 @@
 <div class="container">
-  <h2 class="h-font form-header"><%= @blog.title %></h2>
-  <p class="p-font sub-heading">By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
+    <h2 class="h-font form-header"><%= @blog.title %></h2>
+    <p class="p-font sub-heading center">By <%= @blog.user.first_name %> <%= @blog.user.last_name %></p>
+    <div class="show-cont">
+      <% if @blog.cover_image.present? %>
+        <%= cl_image_tag((@blog.cover_image), class: "cover-image-show") %>
+      <% end %>
+    </div>
   <p><%= @blog.content %></p>
 </div>
