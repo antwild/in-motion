@@ -56,11 +56,9 @@ ActiveRecord::Schema.define(version: 2019_06_19_153408) do
     t.string "period_timeframe"
     t.date "date"
     t.time "time"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_type"
-    t.index ["user_id"], name: "index_preconsultations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,5 +71,4 @@ ActiveRecord::Schema.define(version: 2019_06_19_153408) do
   add_foreign_key "blogs", "users"
   add_foreign_key "clients", "preconsultations"
   add_foreign_key "packages", "clients"
-  add_foreign_key "preconsultations", "users"
 end

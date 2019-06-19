@@ -15,18 +15,18 @@
     <%= f.input :phone %>
     <p>About you</p>
     <%= f.input :age %>
-    <%= f.input :sex %>
-    <%= f.input :height %>
-    <%= f.input :weight %>
+    <%= f.input :sex, as: :select, collection: @sex %>
+    <%= f.input :height, label: "Height in cm" %>
+    <%= f.input :weight, label: "Weight in kg" %>
     <p>Your goals</p>
-    <%= f.input :goal %>
+    <%= f.input :goal, as: :select, collection: @goals %>
     <p>How much time do you have to accomplish your goal?</p>
-    <%= f.input :number_timeframe %>
-    <%= f.input :period_timeframe %>
+    <%= f.input :number_timeframe, label: "" %>
+    <%= f.input :period_timeframe, as: :select, collection: @period, label: "" %>
     <p>How would you like to be contacted for a consultation?</p>
-    <%= f.input :contact_type %>
-    <p>When can we give you a call?</p>
-    <%= f.input :date, input_html: { class: 'form-control' } %>
+    <%= f.input :contact_type, as: :select, collection: @contact %>
+    <p>When would you like your consultation?</p>
+    <%= f.input :date, :order => [:day, :month, :year], input_html: { class: 'form-control' } %>
     <%= f.input :time, input_html: { class: 'form-control' } %>
 
     <div class="form-actions new-cocktail-button">

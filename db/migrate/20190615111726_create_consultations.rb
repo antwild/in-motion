@@ -14,7 +14,6 @@ class CreateConsultations < ActiveRecord::Migration[5.2]
       t.string :period_timeframe
       t.date :date
       t.time :time
-      t.references :user, foreign_key: true
 
       t.timestamps
     end
