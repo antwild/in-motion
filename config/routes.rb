@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :users
   resources :blogs
   resources :services, only: [:index, :show] do
-    resources :consultations
+    resources :preconsultations
   end
 end

@@ -1,6 +1,6 @@
 puts "Cleaning database..."
 Blog.destroy_all
-Consultation.destroy_all
+Preconsultation.destroy_all
 User.destroy_all
 Service.destroy_all
 puts "Database empty!"

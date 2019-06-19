@@ -14,10 +14,10 @@
       <%#= f.input :phone, input_html: { class: 'form-control' } %>
 
     <%# end %>
-  <%= simple_form_for [@service, @consultation] do |f| %>
+  <%= simple_form_for [@service, @preconsultation] do |f| %>
 
-<% if @consultation.errors.any? %>
-      <% @consultation.errors.full_messages.each do |message| %>
+<% if @preconsultation.errors.any? %>
+      <% @preconsultation.errors.full_messages.each do |message| %>
         <p><%= message %></p>
       <% end %>
     <% end %>
