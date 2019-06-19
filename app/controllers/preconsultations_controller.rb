@@ -8,18 +8,13 @@ class PreconsultationsController < ApplicationController
   end
 
   def new
-    @user = User.new
-    @service = Service.find(params[:service_id])
     @preconsultation = Preconsultation.new
   end
 
   def create
-    # @user = User.find(params[:user_id])
-    @service = Service.find(params[:service_id])
-    @preconsultation = Preconsultation.new
-    @preconsultation.service_id = @service.id
-    if @preconsultation.save(preconsultation_params)
-      redirect_to service_preconstulation_path(@preconsultation)
+    @preconsultation = Preconsultation.new(preconsultation_params)
+    if @preconsultation.save
+      redirect_to preconsultation_path(@preconsultation)
     else
       render :new
     end
@@ -38,6 +33,6 @@ class PreconsultationsController < ApplicationController
   private
 
   def preconsultation_params
-    params.require(:preconsultation).permit(:date, :time)
+    params.require(:preconsultation).permit(Preconsultation.column_names)
   end
 end

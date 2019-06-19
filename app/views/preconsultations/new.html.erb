@@ -1,28 +1,31 @@
 <div class="container">
-  <% if @service.id == 3 %>
-    <h2 class="h-font form-header">Book a <%= @service.service_type %> consultation</h2>
-  <% else %>
-    <h2 class="h-font form-header">Book an <%= @service.service_type %> consultation</h2>
-  <% end %>
+  <h2 class="h-font form-header">Book a preconsultation</h2>
 
-    <%#= simple_form_for(@user) do |f| %>
-    <!-- <div class="form-group"> -->
+  <%= simple_form_for (@preconsultation) do |f| %>
 
-      <%#= f.input :first_name, input_html: { class: 'form-control' } %>
-      <%#= f.input :last_name, input_html: { class: 'form-control' } %>
-      <%#= f.input :email, input_html: { class: 'form-control' } %>
-      <%#= f.input :phone, input_html: { class: 'form-control' } %>
-
-    <%# end %>
-  <%= simple_form_for [@service, @preconsultation] do |f| %>
-
-<% if @preconsultation.errors.any? %>
+    <% if @preconsultation.errors.any? %>
       <% @preconsultation.errors.full_messages.each do |message| %>
         <p><%= message %></p>
       <% end %>
     <% end %>
-
-
+    <p>Contact details</p>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <p>About you</p>
+    <%= f.input :age %>
+    <%= f.input :sex %>
+    <%= f.input :height %>
+    <%= f.input :weight %>
+    <p>Your goals</p>
+    <%= f.input :goal %>
+    <p>How much time do you have to accomplish your goal?</p>
+    <%= f.input :number_timeframe %>
+    <%= f.input :period_timeframe %>
+    <p>How would you like to be contacted for a consultation?</p>
+    <%= f.input :contact_type %>
+    <p>When can we give you a call?</p>
     <%= f.input :date, input_html: { class: 'form-control' } %>
     <%= f.input :time, input_html: { class: 'form-control' } %>
 
@@ -30,6 +33,5 @@
       <%= f.button :submit, class: "btn btn-info" %>
     </div>
 
-    <!-- </div> -->
   <% end %>
 </div>

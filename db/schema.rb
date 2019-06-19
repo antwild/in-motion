@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_135019) do
+ActiveRecord::Schema.define(version: 2019_06_19_153408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,35 +25,53 @@ ActiveRecord::Schema.define(version: 2019_06_19_135019) do
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
-  create_table "preconsultations", force: :cascade do |t|
-    t.date "date"
-    t.bigint "user_id"
-    t.bigint "service_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.time "time"
-    t.index ["service_id"], name: "index_preconsultations_on_service_id"
-    t.index ["user_id"], name: "index_preconsultations_on_user_id"
+  create_table "clients", force: :cascade do |t|
+    t.bigint "preconsultation_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.index ["preconsultation_id"], name: "index_clients_on_preconsultation_id"
   end
 
-  create_table "services", force: :cascade do |t|
+  create_table "packages", force: :cascade do |t|
+    t.bigint "client_id"
+    t.integer "number_sessions"
+    t.integer "price_tier"
+    t.integer "price"
+    t.index ["client_id"], name: "index_packages_on_client_id"
+  end
+
+  create_table "preconsultations", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.integer "age"
+    t.string "sex"
+    t.integer "height"
+    t.integer "weight"
+    t.string "goal"
+    t.integer "number_timeframe"
+    t.string "period_timeframe"
+    t.date "date"
+    t.time "time"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "service_type"
-    t.string "image"
+    t.string "contact_type"
+    t.index ["user_id"], name: "index_preconsultations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
-    t.string "phone"
-    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "blogs", "users"
-  add_foreign_key "preconsultations", "services"
+  add_foreign_key "clients", "preconsultations"
+  add_foreign_key "packages", "clients"
   add_foreign_key "preconsultations", "users"
 end

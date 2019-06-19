@@ -1,4 +1,4 @@
 class Preconsultation < ApplicationRecord
-  belongs_to :user
-  belongs_to :service
+  has_many :clients
+  # Need to add validations
 end

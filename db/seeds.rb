@@ -2,35 +2,18 @@ puts "Cleaning database..."
 Blog.destroy_all
 Preconsultation.destroy_all
 User.destroy_all
-Service.destroy_all
 puts "Database empty!"
 
-puts "Creating services..."
-
-types = [
-  {service_type: "online", image: "https://res.cloudinary.com/dvh0qbhxn/image/upload/v1560880223/xd4sbdfstfldv692yj7d.jpg"},
-  {service_type: "in person", image: "https://res.cloudinary.com/dvh0qbhxn/image/upload/v1560880210/ajnea8cnrazxryz1grdd.jpg"},
-  {service_type: "group", image: "https://res.cloudinary.com/dvh0qbhxn/image/upload/v1560880197/xqf0f458ymynl3cdv15z.jpg"}
-]
-
-Service.create!(types)
-
-puts "Services 'online', 'in person' and 'group' created!"
 puts "Creating Users..."
 
 users = [
   {
     first_name: "Ash",
-    last_name: "Wills",
-    email: "Ash@gmail.com",
-    phone: "07988 276 273",
-    admin: true
+    last_name: "Wills"
   },
   {
     first_name: "Ant",
-    last_name: "Wild",
-    email: "ant@gmail.com",
-    phone: "07921 927 384",
+    last_name: "Wild"
   }
 ]
 
