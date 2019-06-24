@@ -1,10 +1,6 @@
-class CreateConsultations < ActiveRecord::Migration[5.2]
+class CreatePreconsultations < ActiveRecord::Migration[5.2]
   def change
-    create_table :consultations do |t|
-      t.string :first_name
-      t.string :last_name
-      t.string :email
-      t.string :phone
+    create_table :preconsultations do |t|
       t.integer :age
       t.string :sex
       t.integer :height
@@ -12,8 +8,10 @@ class CreateConsultations < ActiveRecord::Migration[5.2]
       t.string :goal
       t.integer :number_timeframe
       t.string :period_timeframe
+      t.string :contact_type
       t.date :date
       t.time :time
+      t.references :enquiry, foreign_key: true
 
       t.timestamps
     end

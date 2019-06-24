@@ -1,3 +1,3 @@
 class Package < ApplicationRecord
-  belongs_to :client
+  belongs_to :consultation
 end

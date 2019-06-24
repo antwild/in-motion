@@ -1,4 +1,5 @@
 class Preconsultation < ApplicationRecord
+  belongs_to :enquiry
   has_many :clients
 
   validates :sex, inclusion: { in: ["Male", "Female"] }
