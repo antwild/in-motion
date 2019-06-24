@@ -9,10 +9,10 @@
       <% end %>
     <% end %>
     <p>Contact details</p>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :email %>
-    <%= f.input :phone %>
+    <p><%= @enquiry[:first_name] %></p>
+    <p><%= @enquiry[:last_name] %></p>
+    <p><%= @enquiry[:email] %></p>
+    <p><%= @enquiry[:phone] %></p>
     <p>About you</p>
     <%= f.input :age %>
     <%= f.input :sex, as: :select, collection: @sex %>

@@ -1,13 +1,10 @@
 class PreconsultationsController < ApplicationController
-  def index
-    @preconsultations = Preconsultation.all
-  end
-
   def show
     @preconsultation = Preconsultation.find(params[:id])
   end
 
   def new
+    @enquiry = params
     @sex = ["Male", "Female"]
     @goals = ["Lose weight", "Gain strength", "Gain endurance"]
     @period = ["Weeks", "Months"]
@@ -26,16 +23,6 @@ class PreconsultationsController < ApplicationController
       render :new
     end
   end
-
-# Commented actions will be needed when creating a sign up/in feature
-  # def update
-  # end
-
-  # def edit
-  # end
-
-  # def destroy
-  # end
 
   private
 
