@@ -10,8 +10,8 @@ class EnquiriesController < ApplicationController
   def create
     @enquiry = Enquiry.new(enquiry_params)
     if @enquiry.save
-      redirect_to new_preconsultation_path(enquiry_params)
-      # redirect_to enquiry_path(@enquiry)
+      EnquiryMailer.with(enquiry: @enquiry).send_precon.deliver_now
+      redirect_to enquiry_path(@enquiry)
     else
       render :new
     end
