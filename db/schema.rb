@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_153408) do
+ActiveRecord::Schema.define(version: 2019_06_24_092101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,22 +31,43 @@ ActiveRecord::Schema.define(version: 2019_06_19_153408) do
     t.string "last_name"
     t.string "email"
     t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["preconsultation_id"], name: "index_clients_on_preconsultation_id"
   end
 
-  create_table "packages", force: :cascade do |t|
+  create_table "consultations", force: :cascade do |t|
+    t.text "important"
+    t.text "notes"
+    t.text "strategy"
     t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_consultations_on_client_id"
+  end
+
+  create_table "enquiries", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
+    t.string "country"
+    t.text "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.bigint "consultation_id"
     t.integer "number_sessions"
     t.integer "price_tier"
     t.integer "price"
-    t.index ["client_id"], name: "index_packages_on_client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["consultation_id"], name: "index_packages_on_consultation_id"
   end
 
   create_table "preconsultations", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone"
     t.integer "age"
     t.string "sex"
     t.integer "height"
@@ -54,11 +75,13 @@ ActiveRecord::Schema.define(version: 2019_06_19_153408) do
     t.string "goal"
     t.integer "number_timeframe"
     t.string "period_timeframe"
+    t.string "contact_type"
     t.date "date"
     t.time "time"
+    t.bigint "enquiry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "contact_type"
+    t.index ["enquiry_id"], name: "index_preconsultations_on_enquiry_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,5 +93,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_153408) do
 
   add_foreign_key "blogs", "users"
   add_foreign_key "clients", "preconsultations"
-  add_foreign_key "packages", "clients"
+  add_foreign_key "consultations", "clients"
+  add_foreign_key "packages", "consultations"
+  add_foreign_key "preconsultations", "enquiries"
 end

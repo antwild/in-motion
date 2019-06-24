@@ -2,7 +2,7 @@
   <h2 class="h-font form-header">In Motion Blog</h2>
 
   <div class="blog-cards">
-    <% @blogs.each do |blog| %>
+    <% @blogs.reverse_each do |blog| %>
       <%= link_to blog_path(blog) do %>
         <div class="card-blog">
           <%= cl_image_tag(blog.cover_image) %>
