@@ -9,4 +9,9 @@ class EnquiryMailerPreview < ActionMailer::Preview
     EnquiryMailer.with(enquiry: enq).send_precon
   end
 
+  def new_enq
+    enq = Enquiry.first
+    EnquiryMailer.with(enquiry: enq).new_enq
+  end
+
 end
