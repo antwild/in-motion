@@ -10,10 +10,8 @@ class EnquiriesController < ApplicationController
   def create
     @enquiry = Enquiry.new(enquiry_params)
     if @enquiry.save
-      EnquiryMailer.with(enquiry: @enquiry).hello.deliver_now
-
-      # EnquiryMailer.with(enquiry: @enquiry).send_precon.deliver_now
-      # EnquiryMailer.with(enquiry: @enquiry).new_enq.deliver_now
+      EnquiryMailer.with(enquiry: @enquiry).send_precon.deliver_now
+      EnquiryMailer.with(enquiry: @enquiry).new_enq.deliver_now
       redirect_to enquiry_path(@enquiry)
     else
       render :new

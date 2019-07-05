@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
-gem 'postmark-rails'
 gem 'country_select'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
