@@ -1,5 +1,14 @@
-<h1>Preconsultation#new_precon</h1>
+<h2>New preconsultation form received from In Motion Food.com from:</h2>
 
-<p>
-  <%= @greeting %>, find me in app/views/preconsultation_mailer/new_precon.html.erb
-</p>
+<p><%= @preconsultation.client.first_name %> <%= @preconsultation.client.last_name %></p>
+<p><%= @preconsultation.client.phone %></p>
+<p><%= @preconsultation.client.email %></p>
+
+<p>- <%= @preconsultation.sex %></p>
+<p>- <%= @preconsultation.height %>cm</p>
+<p>- <%= @preconsultation.weight %>kg</p>
+<p>- <%= @preconsultation.goal %></p>
+<p>- <%= @preconsultation.number_timeframe %> <%= @preconsultation.period_timeframe %></p>
+<p>- <%= @preconsultation.contact_type %></p>
+
+<p><strong><i>Remember to contact <%= @preconsultation.client.first_name %> within 24 hours!</i></strong></p>

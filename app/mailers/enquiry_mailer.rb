@@ -1,10 +1,5 @@
 class EnquiryMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.enquiry_mailer.send_precon.subject
-  #
   def send_precon
     @enquiry = params[:enquiry]
     # NEED TO SET FOR PRODUCTION

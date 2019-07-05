@@ -17,10 +17,11 @@ class PreconsultationsController < ApplicationController
     @preconsultation = Preconsultation.new(preconsultation_params)
     @preconsultation.client = @client
     if @preconsultation.save
+      PreconsultationMailer.with(preconsultation: @preconsultation).pre_confirm.deliver_now
+      PreconsultationMailer.with(preconsultation: @preconsultation).new_precon.deliver_now
       redirect_to client_preconsultation_path(@client, @preconsultation)
     else
       render :new
-      raise
     end
   end
 

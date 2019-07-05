@@ -2,21 +2,11 @@ class PreconsultationMailer < ApplicationMailer
 
   def pre_confirm
     @preconsultation = params[:preconsultation]
-
-    mail(to: @preconsultation[:email])
+    mail(to: @preconsultation.client[:email], subject: "We have received your preconsultation")
   end
 
   def new_precon
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    @preconsultation = params[:preconsultation]
+    mail(to: "antwildy@gmail.com", subject: "New preconsultation form from In Motion Food Co.")
   end
-end
-
-
-def send_precon
-  @enquiry = params[:enquiry]
-  # NEED TO SET FOR PRODUCTION
-  @url = "http://localhost:3000/preconsultations/new"
-  mail(to: @enquiry[:email], subject: "Book your In Motion Food Company consultation")
 end
