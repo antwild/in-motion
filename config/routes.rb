@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'enquiries/show'
-  get 'enquiries/new'
-  get 'enquiries/create'
   root to: 'pages#home'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
