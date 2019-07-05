@@ -1,6 +1,5 @@
 class Preconsultation < ApplicationRecord
-  belongs_to :enquiry
-  has_many :clients
+  belongs_to :client
 
   validates :sex, inclusion: { in: ["Male", "Female"] }
   validates :goal, inclusion: { in: ["Lose weight", "Gain strength", "Gain endurance"] }

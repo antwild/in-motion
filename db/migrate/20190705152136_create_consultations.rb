@@ -4,7 +4,7 @@ class CreateConsultations < ActiveRecord::Migration[5.2]
       t.text :important
       t.text :notes
       t.text :strategy
-      t.references :client, foreign_key: true
+      t.references :preconsultation, foreign_key: true
 
       t.timestamps
     end

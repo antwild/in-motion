@@ -1,5 +1,4 @@
 class Consultation < ApplicationRecord
-  belongs_to :client
-  belongs_to :preconsultation, through: :client
-  has_many :packages
+  belongs_to :preconsultation
+  belongs_to :client, through: :preconsultation
 end

@@ -8,7 +8,7 @@ class EnquiryMailer < ApplicationMailer
   def send_precon
     @enquiry = params[:enquiry]
     # NEED TO SET FOR PRODUCTION
-    @url = "http://localhost:3000/preconsultations/new"
+    @url = "http://localhost:3000/clients/new"
     mail(to: @enquiry[:email], subject: "Book your In Motion Food Company consultation")
   end
 

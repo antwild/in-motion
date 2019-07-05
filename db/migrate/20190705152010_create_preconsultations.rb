@@ -11,7 +11,7 @@ class CreatePreconsultations < ActiveRecord::Migration[5.2]
       t.string :contact_type
       t.date :date
       t.time :time
-      t.references :enquiry, foreign_key: true
+      t.references :client, foreign_key: true
 
       t.timestamps
     end
