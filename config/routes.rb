@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :blogs
   resources :enquiries, only: [:new, :create, :show]
-  resources :preconsultations, only: [:new, :create, :show]
   resources :clients do
+    resources :preconsultations, only: [:new, :create, :show]
     resources :consultations
     resources :packages
   end

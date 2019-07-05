@@ -4,21 +4,22 @@ class PreconsultationsController < ApplicationController
   end
 
   def new
-    @enquiry = params
+    @client = Client.find(params[:client_id])
+    @preconsultation = Preconsultation.new
     @sex = ["Male", "Female"]
     @goals = ["Lose weight", "Gain strength", "Gain endurance"]
     @period = ["Weeks", "Months"]
     @contact = ["In person", "Phone", "Video chat"]
-    @preconsultation = Preconsultation.new
   end
 
   def create
+    @client = Client.find(params[:client_id])
     @preconsultation = Preconsultation.new(preconsultation_params)
-    @client = Client.new(client_params)
+    @preconsultation.client = @client
     if @preconsultation.save
-      @client.preconsultation_id = @preconsultation.id
-      @client.save
-      redirect_to preconsultation_path(@preconsultation)
+      PreconsultationMailer.with(preconsultation: @preconsultation).pre_confirm.deliver_now
+      PreconsultationMailer.with(preconsultation: @preconsultation).new_precon.deliver_now
+      redirect_to client_preconsultation_path(@client, @preconsultation)
     else
       render :new
     end
@@ -31,6 +32,6 @@ class PreconsultationsController < ApplicationController
   end
 
   def client_params
-    params.require(:preconsultation).permit(:first_name, :last_name, :email, :phone)
+    params.require(:client).permit(:first_name, :last_name, :email, :phone)
   end
 end

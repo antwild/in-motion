@@ -1,0 +1,14 @@
+<h2>New preconsultation form received from In Motion Food.com from:</h2>
+
+<p><%= @preconsultation.client.first_name %> <%= @preconsultation.client.last_name %></p>
+<p><%= @preconsultation.client.phone %></p>
+<p><%= @preconsultation.client.email %></p>
+
+<p>- <%= @preconsultation.sex %></p>
+<p>- <%= @preconsultation.height %>cm</p>
+<p>- <%= @preconsultation.weight %>kg</p>
+<p>- <%= @preconsultation.goal %></p>
+<p>- <%= @preconsultation.number_timeframe %> <%= @preconsultation.period_timeframe %></p>
+<p>- <%= @preconsultation.contact_type %></p>
+
+<p><strong><i>Remember to contact <%= @preconsultation.client.first_name %> within 24 hours!</i></strong></p>

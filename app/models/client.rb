@@ -1,6 +1,10 @@
 class Client < ApplicationRecord
-  belongs_to :enquiry
-  belongs_to :preconsultation
-  has_many :consultations
+  has_many :preconsultations
+  has_many :consultations, through: :preconsultations
   has_many :packages, through: :consultations
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+  validates :phone, presence: true
 end

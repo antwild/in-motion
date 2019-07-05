@@ -1,0 +1,13 @@
+<div class="container">
+  <h2 class="h-font form-header">Book a preconsultation</h2>
+  <p class="p-font center">Page 1 of 2</p>
+
+  <%= simple_form_for(@client) do |f| %>
+    <p>Contact details</p>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.button :submit, class: "btn btn-info", value: "Submit" %>
+  <% end %>
+</div>

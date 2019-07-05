@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_092101) do
+ActiveRecord::Schema.define(version: 2019_07_05_152215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,24 +26,22 @@ ActiveRecord::Schema.define(version: 2019_06_24_092101) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.bigint "preconsultation_id"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["preconsultation_id"], name: "index_clients_on_preconsultation_id"
   end
 
   create_table "consultations", force: :cascade do |t|
     t.text "important"
     t.text "notes"
     t.text "strategy"
-    t.bigint "client_id"
+    t.bigint "preconsultation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_consultations_on_client_id"
+    t.index ["preconsultation_id"], name: "index_consultations_on_preconsultation_id"
   end
 
   create_table "enquiries", force: :cascade do |t|
@@ -78,10 +76,10 @@ ActiveRecord::Schema.define(version: 2019_06_24_092101) do
     t.string "contact_type"
     t.date "date"
     t.time "time"
-    t.bigint "enquiry_id"
+    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["enquiry_id"], name: "index_preconsultations_on_enquiry_id"
+    t.index ["client_id"], name: "index_preconsultations_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,8 +90,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_092101) do
   end
 
   add_foreign_key "blogs", "users"
-  add_foreign_key "clients", "preconsultations"
-  add_foreign_key "consultations", "clients"
+  add_foreign_key "consultations", "preconsultations"
   add_foreign_key "packages", "consultations"
-  add_foreign_key "preconsultations", "enquiries"
+  add_foreign_key "preconsultations", "clients"
 end
