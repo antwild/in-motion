@@ -7,7 +7,14 @@ class PreconsultationsController < ApplicationController
     @client = Client.find(params[:client_id])
     @preconsultation = Preconsultation.new
     @sex = ["Male", "Female"]
-    @goals = ["Lose weight", "Gain strength", "Gain endurance"]
+    @goals = [
+      "Lose body fat",
+      "Build Muscle",
+      "Get stronger",
+      "Get fitter",
+      "Performance Based",
+      "Other"
+    ]
     @period = ["Weeks", "Months"]
     @contact = ["In person", "Phone", "Video chat"]
   end
@@ -21,6 +28,7 @@ class PreconsultationsController < ApplicationController
       PreconsultationMailer.with(preconsultation: @preconsultation).new_precon.deliver_now
       redirect_to client_preconsultation_path(@client, @preconsultation)
     else
+      raise
       render :new
     end
   end

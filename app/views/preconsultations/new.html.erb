@@ -1,7 +1,8 @@
 <div class="container">
   <h2 class="h-font form-header">Book a preconsultation</h2>
+  <p class="p-font center">Page 2 of 2</p>
 
-  <p>Contact details</p>
+  <p>CONTACT DETAILS</p>
   <p><%= @client.first_name %></p>
   <p><%= @client.last_name %></p>
   <p><%= @client.email %></p>
@@ -9,13 +10,34 @@
 
 
   <%= simple_form_for [@client, @preconsultation] do |f| %>
-    <p>About you</p>
+    <p>PERSONAL DETAILS - section 1 of 5</p>
     <%= f.input :age %>
     <%= f.input :sex, as: :select, collection: @sex %>
     <%= f.input :height, label: "Height in cm" %>
     <%= f.input :weight, label: "Weight in kg" %>
-    <p>Your goals</p>
-    <%= f.input :goal, as: :select, collection: @goals %>
+    <%= f.input :about, label: "About you: (Lifestyle, opccupation, illnesses, dietary needs - NOT your goals)" %>
+    <p>YOUR GOALS - section 2 of 5</p>
+    <%= f.select(:goal, @goals, { prompt: "Please select"}, { multiple: true, size: 7 }) %>
+    <%= f.input :expand, label: "Please expand on your goals (Quantifying your targets/expectations/timescale/previous experiences)" %>
+
+    <p>YOUR CURRENT DIET - section 3 of 5</p>
+    <%= f.input :meals_per_day, label: "How many meals per day do you currently eat on average?" %>
+    <%= f.input :similar_meals, label: "Do you eat very similar meals each day or are they more varied/erratic? eg. bought packaged goods etc." %>
+    <p>If you are able to, please write down a TYPICAL day's food and drink:</p>
+    <%= f.input :breakfast %>
+    <%= f.input :snack_one %>
+    <%= f.input :lunch %>
+    <%= f.input :snack_two %>
+    <%= f.input :dinner %>
+    <%= f.input :snack_three %>
+    <%= f.input :eating_to_achieve, label: "What is this typical day's eating trying to achieve?" %>
+    <%= f.input :supplements, label: "" %>
+
+
+
+
+
+
     <p>How much time do you have to accomplish your goal?</p>
     <%= f.input :number_timeframe, label: "" %>
     <%= f.input :period_timeframe, as: :select, collection: @period, label: "" %>
