@@ -17,6 +17,7 @@ class PreconsultationsController < ApplicationController
     ]
     @period = ["Weeks", "Months"]
     @contact = ["In person", "Phone", "Video chat"]
+    @budget = ["Less than £100", "£101 - £200", "£201 - £500", "Over £500"]
   end
 
   def create
@@ -28,7 +29,6 @@ class PreconsultationsController < ApplicationController
       PreconsultationMailer.with(preconsultation: @preconsultation).new_precon.deliver_now
       redirect_to client_preconsultation_path(@client, @preconsultation)
     else
-      raise
       render :new
     end
   end

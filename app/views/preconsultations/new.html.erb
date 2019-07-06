@@ -31,7 +31,30 @@
     <%= f.input :dinner %>
     <%= f.input :snack_three %>
     <%= f.input :eating_to_achieve, label: "What is this typical day's eating trying to achieve?" %>
-    <%= f.input :supplements, label: "" %>
+    <%= f.input :supplements, label: "Do you currently use any supplements or medications?" %>
+    <%= f.input :supp_detail, label: "If YES, please list them with details (Quantities, consumption, brands etc.)" %>
+    <%= f.input :supplements_year, label: "
+Please list (with approximate dates) any supplements and in particular, medications (including antibiotics) you have used in the last year:" %>
+
+    <p>SUPPORT - section 4 of 5</p>
+    <%= f.input :support, label: "In very simple, practical terms, what is it that you need to do to achieve your goals? i.e. what can we do for you?" %>
+    <%= f.input :budget, as: :select, collection: @budget, label: "The different services we offer vary in terms of the level of support, time and client effort required. To better help advise you on the most appropriate and effective service for your individual goals, please indicate the budget most applicable to your current situation." %>
+    <%= f.input :diet, label: "Please state your dietry requirements (i.e. any foods you can/will not eat):" %>
+    <%= f.input :dinner %>
+    <p>If we end up working together, what does success look like to you in 3, 6 and 12 months?</p>
+    <%= f.input :three_months %>
+    <%= f.input :six_months %>
+    <%= f.input :twelve_months %>
+    <p>YOUR CURRENT TRAINING / LEVEL OF EXERCISE - part 5 of 5</p>
+    <%= f.input :training, label: "In a typical week, please list the days you train, with the type of training, duration and the speed/distance/volume of training." %>
+
+
+
+
+
+
+
+
 
 
 

@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_142930) do
     t.string "dinner"
     t.string "snack_three"
     t.string "eating_to_achieve"
-    t.string "supplements"
+    t.boolean "supplements"
     t.text "supp_detail"
     t.text "supplements_year"
     t.text "support"
