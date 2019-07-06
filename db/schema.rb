@@ -71,11 +71,6 @@ ActiveRecord::Schema.define(version: 2019_07_06_142930) do
     t.integer "height"
     t.integer "weight"
     t.string "goal"
-    t.integer "number_timeframe"
-    t.string "period_timeframe"
-    t.string "contact_type"
-    t.date "date"
-    t.time "time"
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
