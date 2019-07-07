@@ -1,7 +1,8 @@
 <div class="container">
   <h2 class="h-font form-header">Book a preconsultation</h2>
+  <p class="p-font center">Page 2 of 2</p>
 
-  <p>Contact details</p>
+  <p>CONTACT DETAILS</p>
   <p><%= @client.first_name %></p>
   <p><%= @client.last_name %></p>
   <p><%= @client.email %></p>
@@ -9,22 +10,52 @@
 
 
   <%= simple_form_for [@client, @preconsultation] do |f| %>
-    <p>About you</p>
+    <p>PERSONAL DETAILS - section 1 of 5</p>
     <%= f.input :age %>
     <%= f.input :sex, as: :select, collection: @sex %>
     <%= f.input :height, label: "Height in cm" %>
     <%= f.input :weight, label: "Weight in kg" %>
-    <p>Your goals</p>
+    <%= f.input :about, label: "About you: (Lifestyle, opccupation, illnesses, dietary needs - NOT your goals)" %>
+    <p>YOUR GOALS - section 2 of 5</p>
     <%= f.input :goal, as: :select, collection: @goals %>
-    <p>How much time do you have to accomplish your goal?</p>
-    <%= f.input :number_timeframe, label: "" %>
-    <%= f.input :period_timeframe, as: :select, collection: @period, label: "" %>
-    <p>How would you like to be contacted for a consultation?</p>
-    <%= f.input :contact_type, as: :select, collection: @contact %>
-    <p>When would you like your consultation?</p>
-    <%= f.input :date, :order => [:day, :month, :year], input_html: { class: 'form-control' } %>
-    <%= f.input :time, input_html: { class: 'form-control' } %>
+    <%= f.input :expand, label: "Please expand on your goals (Quantifying your targets/expectations/timescale/previous experiences)" %>
 
+    <p>YOUR CURRENT DIET - section 3 of 5</p>
+    <%= f.input :meals_per_day, label: "How many meals per day do you currently eat on average?" %>
+    <%= f.input :similar_meals, label: "Do you eat very similar meals each day or are they more varied/erratic? eg. bought packaged goods etc." %>
+    <p>If you are able to, please write down a TYPICAL day's food and drink:</p>
+    <%= f.input :breakfast %>
+    <%= f.input :snack_one %>
+    <%= f.input :lunch %>
+    <%= f.input :snack_two %>
+    <%= f.input :dinner %>
+    <%= f.input :snack_three %>
+    <%= f.input :eating_to_achieve, label: "What is this typical day's eating trying to achieve?" %>
+    <%= f.input :supplements, label: "Do you currently use any supplements or medications?" %>
+    <%= f.input :supp_detail, label: "If YES, please list them with details (Quantities, consumption, brands etc.)" %>
+    <%= f.input :supplements_year, label: "Please list (with approximate dates) any supplements and in particular, medications (including antibiotics) you have used in the last year:" %>
+
+    <p>SUPPORT - section 4 of 5</p>
+    <%= f.input :support, label: "In very simple, practical terms, what is it that you need to do to achieve your goals? i.e. what can we do for you?" %>
+    <%= f.input :budget, as: :select, collection: @budget, label: "The different services we offer vary in terms of the level of support, time and client effort required. To better help advise you on the most appropriate and effective service for your individual goals, please indicate the budget most applicable to your current situation." %>
+    <%= f.input :diet, label: "Please state your dietry requirements (i.e. any foods you can/will not eat):" %>
+    <p>If we end up working together, what does success look like to you in 3, 6 and 12 months?</p>
+    <%= f.input :three_months %>
+    <%= f.input :six_months %>
+    <%= f.input :twelve_months %>
+    <p>YOUR CURRENT TRAINING / LEVEL OF EXERCISE - part 5 of 5</p>
+    <p>In a typical week, please list the days you train, with the type of training, duration and the speed/distance/volume of training.</p>
+    <%= f.input :training, label: "eg. MONDAY - run, 30 mins, 5k." %>
+    <p><i>Females only</i></p>
+    <%= f.input :female, label: "Please detail information relating to menstrual cycle length, frequency or if you are postmenopausal:" %>
+    <%= f.input :previous, label: "Have you previously sought dietry advice? (If so, please expand):" %>
+    <%= f.input :bathroom, label: "Do you own digital bathroom scales?" %>
+    <%= f.input :kitchen, label: "Do you own digital kitchen scales?" %>
+    <%= f.input :based, label: "Where are you geographically based?" %>
+    <%= f.input :remote, label: "Do you have access to a webchat service like Skype should your consultation need to be remote?" %>
+    <%= f.input :found, label: "How did you come across In Motion Food Company?" %>
+    <%= f.input :phrase, label: "If you used a search engine to find us, we would love to know what phrase you typed in that brought us up!" %>
+    <%= f.input :testimonial, label: "Would you be willing to provide a testimonial and/or before and after photos (if applicable) for In Motion Food Company?" %>
     <div class="form-actions">
       <%= f.button :submit, class: "btn btn-info" %>
     </div>

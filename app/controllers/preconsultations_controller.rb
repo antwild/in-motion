@@ -7,9 +7,17 @@ class PreconsultationsController < ApplicationController
     @client = Client.find(params[:client_id])
     @preconsultation = Preconsultation.new
     @sex = ["Male", "Female"]
-    @goals = ["Lose weight", "Gain strength", "Gain endurance"]
+    @goals = [
+      "Lose body fat",
+      "Build Muscle",
+      "Get stronger",
+      "Get fitter",
+      "Performance Based",
+      "Other"
+    ]
     @period = ["Weeks", "Months"]
     @contact = ["In person", "Phone", "Video chat"]
+    @budget = ["Less than £100", "£101 - £200", "£201 - £500", "Over £500"]
   end
 
   def create

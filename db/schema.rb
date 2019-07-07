@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_05_152215) do
+ActiveRecord::Schema.define(version: 2019_07_06_142930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,14 +71,39 @@ ActiveRecord::Schema.define(version: 2019_07_05_152215) do
     t.integer "height"
     t.integer "weight"
     t.string "goal"
-    t.integer "number_timeframe"
-    t.string "period_timeframe"
-    t.string "contact_type"
-    t.date "date"
-    t.time "time"
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "about"
+    t.text "expand"
+    t.integer "meals_per_day"
+    t.string "similar_meals"
+    t.string "breakfast"
+    t.string "snack_one"
+    t.string "lunch"
+    t.string "snack_two"
+    t.string "dinner"
+    t.string "snack_three"
+    t.string "eating_to_achieve"
+    t.boolean "supplements"
+    t.text "supp_detail"
+    t.text "supplements_year"
+    t.text "support"
+    t.string "budget"
+    t.text "diet"
+    t.string "three_months"
+    t.string "six_months"
+    t.string "twelve_months"
+    t.text "training"
+    t.text "female"
+    t.text "previous"
+    t.boolean "bathroom"
+    t.boolean "kitchen"
+    t.string "based"
+    t.boolean "remote"
+    t.string "found"
+    t.string "phrase"
+    t.boolean "testimonial"
     t.index ["client_id"], name: "index_preconsultations_on_client_id"
   end
 
