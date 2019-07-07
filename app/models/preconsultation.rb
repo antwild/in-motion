@@ -10,7 +10,7 @@ class Preconsultation < ApplicationRecord
       "Get stronger",
       "Get fitter",
       "Performance Based",
-      "Other",
+      "Other"
     ] }
   # Need to add validations
 end
