@@ -10,9 +10,7 @@ class Preconsultation < ApplicationRecord
       "Get stronger",
       "Get fitter",
       "Performance Based",
-      "Other"
+      "Other",
     ] }
-  validates :period_timeframe, inclusion: { in: ["Weeks", "Months"] }
-  validates :contact_type, inclusion: { in: ["In person", "Phone", "Video chat"] }
   # Need to add validations
 end

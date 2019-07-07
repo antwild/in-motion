@@ -17,7 +17,7 @@
     <%= f.input :weight, label: "Weight in kg" %>
     <%= f.input :about, label: "About you: (Lifestyle, opccupation, illnesses, dietary needs - NOT your goals)" %>
     <p>YOUR GOALS - section 2 of 5</p>
-    <%= f.select(:goal, @goals, { prompt: "Please select"}, { multiple: true, size: 7 }) %>
+    <%= f.input :goal, as: :select, collection: @goals %>
     <%= f.input :expand, label: "Please expand on your goals (Quantifying your targets/expectations/timescale/previous experiences)" %>
 
     <p>YOUR CURRENT DIET - section 3 of 5</p>
