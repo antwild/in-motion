@@ -15,15 +15,24 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     # User needs updating
-    @blog.user_id = 1
-    @blog.save
-    redirect_to blog_path(@blog)
-  end
-
-  def update
+    @blog.user_id = 13
+    if @blog.save
+      redirect_to blog_path(@blog)
+    else
+      raise
+      render :new
+    end
   end
 
   def edit
+    @blog = Blog.find(params[:id])
+  end
+
+  def update
+    @blog = Blog.find(params[:id])
+    @blog.update_attributes(blog_params)
+    @blog.save
+    redirect_to blog_path(@blog)
   end
 
   def destroy
