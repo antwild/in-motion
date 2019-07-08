@@ -7,4 +7,9 @@
       <% end %>
     </div>
   <p><%= @blog.content %></p>
+
+  <% if current_user %>
+    <%= link_to "Edit blog post", edit_blog_path %>
+    <%= link_to "Delete blog post", blog_path, data: { confirm: "Are you sure?" }, method: :delete  %>
+  <% end %>
 </div>

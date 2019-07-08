@@ -1,5 +1,8 @@
 <div class="container">
   <h2 class="h-font form-header">In Motion Blog</h2>
+  <% if current_user %>
+    <%= link_to "New blog post", new_blog_path %>
+  <% end %>
 
   <div class="blog-cards">
     <% @blogs.reverse_each do |blog| %>
