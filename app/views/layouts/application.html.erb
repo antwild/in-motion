@@ -10,7 +10,12 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <% if current_user %>
+      <p class="admin-login">Signed in as <%= current_user.first_name %></p>
+    <% end %>
     <%= render 'shared/navbar' unless @home %>
+    <!-- <p class="notice"><%= notice %></p> -->
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

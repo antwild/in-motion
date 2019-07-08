@@ -3,6 +3,8 @@
       <h1 class="title-font">In Motion Food Company</h1>
       <p class="p-font sub-heading">For all of your nutrition needs</p>
     </div>
+    <%= link_to "Login", sign_in_path %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </div>
 
 <div class="container home">
