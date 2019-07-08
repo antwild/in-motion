@@ -1,0 +1,13 @@
+<div class="container">
+  <%= simple_form_for(@blog) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.input :cover_image %>
+    <%= f.input :cover_image_cache, as: :hidden %>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-info" %>
+    </div>
+
+  <% end %>
+
+</div>
