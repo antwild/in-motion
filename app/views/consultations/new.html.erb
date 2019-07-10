@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 class="h-font form-header">New consultation for <%= @client.first_name %> <%= @client.last_name %></h2>
+  <%= simple_form_for [@client, @consultation] do |f| %>
+    <%= f.input :notes, label: "Client notes" %>
+    <%= f.input :important, label: "Important information" %>
+    <%= f.input :strategy, label: "Client strategy" %>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>
