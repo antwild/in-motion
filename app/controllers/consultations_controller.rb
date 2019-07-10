@@ -5,7 +5,7 @@ class ConsultationsController < ApplicationController
 
   def show
     @client = Client.find(params[:client_id])
-    @consultations = Consultation.find(params[:id])
+    @consultation = Consultation.find(params[:id])
   end
 
   def new
@@ -16,11 +16,11 @@ class ConsultationsController < ApplicationController
   def create
     @client = Client.find(params[:client_id])
     @consultation = Consultation.new(consultation_params)
-    # @consultation.user_id = 13
-    raise
+    @consultation.preconsultation_id = @client.preconsultation_ids.last
     if @consultation.save
-      redirect_to consultation_path(@consultation)
+      redirect_to client_consultation_path(@client, @consultation)
     else
+      raise
       render :new
     end
   end
