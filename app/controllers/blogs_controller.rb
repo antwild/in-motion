@@ -19,7 +19,6 @@ class BlogsController < ApplicationController
     if @blog.save
       redirect_to blog_path(@blog)
     else
-      raise
       render :new
     end
   end
